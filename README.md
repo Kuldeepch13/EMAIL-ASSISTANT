@@ -1,236 +1,337 @@
-✉️ AI-Powered Email Assistant
-Chrome Extension + React (Vite) Frontend + Spring Boot Backend | Full Stack AI Project
+# ✉️ Email Assistant AI
 
+<div align="center">
 
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge\&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-green?style=for-the-badge\&logo=springboot)
+![React](https://img.shields.io/badge/React-Frontend-blue?style=for-the-badge\&logo=react)
+![Google Gemini](https://img.shields.io/badge/Gemini-AI-purple?style=for-the-badge\&logo=google)
+![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-yellow?style=for-the-badge\&logo=googlechrome)
+![License: MIT](https://img.shields.io/badge/License-MIT-red?style=for-the-badge)
 
+### 🚀 AI-powered Email Writing Assistant built using Spring Boot, React & Gemini AI
 
+Generate professional email replies instantly inside Gmail with AI-powered suggestions, tone customization, and seamless browser integration.
 
+[Live Demo](#) • [Features](#-features) • [Installation](#-installation) • [Architecture](#-system-architecture)
 
+</div>
 
+---
 
+# 📸 Preview
 
+## ✨ AI Email Generation Flow
 
-📌 Overview
+```mermaid
+flowchart TD
 
-AI-Powered Email Assistant is a full-stack productivity tool built using Spring Boot, React, Vite, and a Chrome Extension (Manifest V3).
-It uses AI/LLM-based text processing to generate, rewrite, improve, and summarize emails directly inside Gmail or any email editor.
+A[User Opens Gmail] --> B[Chrome Extension Injected]
 
-This project demonstrates expertise in:
+B --> C[User Clicks AI Reply]
 
-Full-stack web development
+C --> D[React Frontend]
 
-Chrome Extension engineering
+D --> E[Spring Boot API]
 
-Spring Boot REST API development
+E --> F[Gemini AI API]
 
-AI/LLM integration
+F --> G[AI Generated Response]
 
-Frontend development with React & Vite
+G --> H[Display Suggested Reply]
 
-Content scripts and browser automation
+H --> I[Insert Into Gmail Compose Box]
+```
 
-Cloud-ready & production-grade architecture
+---
 
-🧠 Key Features
-🔹 Chrome Extension (Manifest V3)
+# 🧠 System Architecture
 
-Injects AI features directly inside Gmail
+```mermaid
+graph LR
 
-Captures email text and user prompts
+User --> Extension[Chrome Extension]
 
-Inserts generated replies automatically
+Extension --> React[React UI]
 
-Lightweight and secure MV3 architecture
+React --> API[Spring Boot Backend]
 
-🔹 React + Vite Frontend
+API --> Gemini[Gemini AI API]
 
-Modern UI for interacting with the AI model
+Gemini --> API
 
-Fast HMR and optimized build via Vite
+API --> Response[Generated Email]
 
-Component-based architecture
+Response --> Extension
+```
 
-Environment variable support for API URLs
+---
 
-🔹 Spring Boot Backend
+# 🔁 Sequence Diagram
 
-REST API for AI-powered email generation
+```mermaid
+sequenceDiagram
 
-Controller–Service–DTO layered architecture
+participant User
+participant Extension
+participant Backend
+participant GeminiAI
 
-WebClient-based API integration
+User->>Extension: Click Generate Reply
 
-Scalable and production-ready backend
+Extension->>Backend: POST /api/email/generate
 
-Simple to deploy (Docker, Render, Railway, etc.)
+Backend->>GeminiAI: Send Prompt
 
-🏗️ Full Project Architecture
-┌──────────────────────────┐
-│      Chrome Extension     │
-│ (content.js, manifest V3) │
-└─────────────┬────────────┘
-              │
-              ▼
-┌──────────────────────────┐
-│     React + Vite UI       │
-│ (email-writer-frontend)   │
-└─────────────┬────────────┘
-              │ HTTP (JSON)
-              ▼
-┌──────────────────────────┐
-│     Spring Boot API       │
-│ (email generation logic)  │
-└─────────────┬────────────┘
-              │ AI Call
-              ▼
-       ┌───────────────┐
-       │   LLM Model    │
-       │ (Gemini / GPT) │
-       └───────────────┘
+GeminiAI-->>Backend: AI Generated Email
 
-📂 Project Structure
-Email-Assistant/
+Backend-->>Extension: JSON Response
+
+Extension-->>User: Show AI Reply
+```
+
+---
+
+# ✨ Features
+
+* 🤖 AI-powered email generation
+* ✍️ Professional email replies
+* 🎭 Tone customization
+* ⚡ Instant response generation
+* 🌐 Gmail integration
+* 🧩 Chrome extension support
+* 🔒 Secure backend API
+* 📦 RESTful architecture
+* 🎨 Modern UI
+* 🚀 Fast and lightweight
+
+---
+
+# 🛠 Tech Stack
+
+## Backend
+
+* Java 21
+* Spring Boot
+* Spring Web
+* REST APIs
+
+## Frontend
+
+* React.js
+* Tailwind CSS
+
+## AI
+
+* Google Gemini API
+
+## Browser Extension
+
+* Chrome Extension APIs
+
+## Build Tools
+
+* Maven
+* npm
+
+---
+
+# 📂 Project Structure
+
+```bash
+EMAIL-ASSISTANT/
 │
-├── email-writer-ext/               # Chrome Extension (Manifest V3)
+├── backend/
+│   ├── src/
+│   ├── controller/
+│   ├── service/
+│   ├── dto/
+│   ├── config/
+│   └── application.properties
+│
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── services/
+│
+├── extension/
 │   ├── manifest.json
 │   ├── content.js
-│   ├── content.css
+│   ├── popup.js
+│   └── styles/
 │
-├── email-writer-frontend/          # React + Vite Frontend
-│   ├── src/
-│   ├── package.json
-│   └── vite.config.js
-│
-└── backend/                        # Spring Boot Backend
-    ├── src/main/java/
-    ├── src/main/resources/
-    ├── pom.xml
+├── screenshots/
+├── README.md
+└── LICENSE
+```
 
-🛠️ Tech Stack (ATS Optimized)
-🔸 Frontend
+---
 
-React.js
+# 🚀 How It Works
 
-Vite
+1️⃣ User opens Gmail
 
-JavaScript (ES6+)
+2️⃣ Chrome extension injects AI assistant
 
-HTML5 / CSS3
+3️⃣ User clicks Generate Reply
 
-Component-based architecture
+4️⃣ Email content is sent to Spring Boot backend
 
-🔸 Chrome Extension
+5️⃣ Backend communicates with Gemini AI
 
-Manifest V3
+6️⃣ AI-generated response is returned
 
-Content Scripts
+7️⃣ Suggested email appears instantly
 
-DOM Injection
+---
 
-Event Listeners
+# ⚙️ Installation
 
-Secure background messaging
+## 1️⃣ Clone Repository
 
-🔸 Backend
+```bash
+git clone https://github.com/Kuldeepch13/EMAIL-ASSISTANT.git
 
-Spring Boot
+cd EMAIL-ASSISTANT
+```
 
-REST Controller
+---
 
-WebClient / RestTemplate
+## 2️⃣ Backend Setup
 
-Java 17+
-
-Layered Architecture (Controller → Service → DTO)
-
-JSON-based API communication
-
-CORS support
-
-🔸 AI / NLP
-
-LLM-based Text Generation
-
-Prompt Engineering
-
-Summarization / Rewriting
-
-AI API Integration (Gemini/OpenAI/etc.)
-
-⚙️ Installation & Setup
-1️⃣ Clone the Repository
-git clone <your-repo-url>
-cd Email-Assistant
-
-Frontend Setup (React + Vite)
-cd email-writer-frontend
-npm install
-npm run dev
-
-
-Runs at:
-👉 http://localhost:5173
-
-Chrome Extension Setup
-
-Open Chrome → Extensions
-
-Enable Developer Mode
-
-Click Load Unpacked
-
-Select:
-
-email-writer-ext/
-
-Backend Setup (Spring Boot)
-Run backend:
+```bash
 cd backend
+
+mvn clean install
+
 mvn spring-boot:run
+```
 
+---
 
-Backend runs at:
-👉 http://localhost:8080
+## 3️⃣ Frontend Setup
 
-Example API Endpoint
-POST /api/generate-email
+```bash
+cd frontend
 
-🔑 Environment Variables
-Frontend (email-writer-frontend/.env)
-VITE_API_URL=http://localhost:8080/api/generate-email
+npm install
 
-Backend (application.properties)
-ai.api.key=YOUR_API_KEY
-ai.api.url=YOUR_MODEL_ENDPOINT
+npm run dev
+```
 
-📸 Demo (replace later)
-Gmail Integration	AI Popup UI
+---
 
-	
-📈 Future Enhancements (ATS Keywords)
+## 4️⃣ Configure Gemini API Key
 
-Tone analysis (NLP, sentiment analysis)
+Create `.env` file:
 
-Multi-language support (i18n)
+```env
+GEMINI_API_KEY=your_api_key_here
+```
 
-Email classification using ML models
+---
 
-Cloud deployment (AWS, GCP, Render, Railway)
+## 5️⃣ Load Chrome Extension
 
-User authentication (JWT, OAuth2)
+* Open Chrome
+* Go to `chrome://extensions`
+* Enable Developer Mode
+* Click Load Unpacked
+* Select `extension/` folder
 
-Template storage with databases (MySQL, PostgreSQL, MongoDB)
+---
 
-👨‍💻 Author
+# 📡 API Endpoint
 
-Kuldeep Chaudhary
-Full Stack Developer | Java | Spring Boot | React
-📧 dc629753@gmail.com
+## Generate AI Reply
 
-🔗 GitHub: https://github.com/Kuldeepch13
+```http
+POST /api/email/generate
+```
 
-🔗 LinkedIn: https://www.linkedin.com/in/kuldeepchuadhary1311/
+### Request Body
 
-📜 License
+```json
+{
+  "emailContent": "Can we schedule a meeting tomorrow?",
+  "tone": "Professional"
+}
+```
+
+### Response
+
+```json
+{
+  "generatedReply": "Thank you for reaching out. I would be happy to schedule a meeting tomorrow. Please let me know your preferred time."
+}
+```
+
+---
+
+# 🎭 Supported Tones
+
+* Professional
+* Friendly
+* Formal
+* Casual
+* Concise
+* Persuasive
+
+---
+
+# 🔒 Security Features
+
+* API validation
+* Secure environment variables
+* CORS configuration
+* Input sanitization
+
+---
+
+# 📈 Future Improvements
+
+* Multi-language support
+* Email summarization
+* Smart reply suggestions
+* User authentication
+* Conversation history
+* AI personalization
+* Outlook support
+* Response analytics
+
+---
+
+# 🧪 Future Enhancements
+
+* Docker support
+* Redis caching
+* JWT Authentication
+* WebSocket real-time updates
+* Deployment on Render/Vercel
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+### Steps
+
+1. Fork repository
+2. Create feature branch
+3. Commit changes
+4. Push changes
+5. Open Pull Request
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+# 📄 License
 
 This project is licensed under the MIT License.
